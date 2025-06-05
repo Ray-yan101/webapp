@@ -1,14 +1,17 @@
+---
 - name: Deploy to Tomcat
-  hosts: web
-  become: yes
+  hosts: localhost
+  become: true
   tasks:
+
     - name: Copy WAR file to Tomcat
       copy:
         src: "/var/snap/jenkins/4874/workspace/webappCICD/target/webapp.war"
         dest: "/opt/tomcat/webapps/webapp.war"
-        remote_src: no
+      delegate_to: localhost
 
     - name: Restart Tomcat
       systemd:
         name: tomcat
         state: restarted
+        enabled: true
