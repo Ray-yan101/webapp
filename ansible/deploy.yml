@@ -12,6 +12,6 @@
 
     - name: Restart Tomcat
       systemd:
-        name: tomcat
+        name: tomcat9
         state: restarted
         enabled: true
