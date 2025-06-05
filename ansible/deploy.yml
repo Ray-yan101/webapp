@@ -1,12 +1,10 @@
-
 - name: Deploy to Tomcat
   hosts: web
   become: yes
   tasks:
     - name: Copy WAR file to Tomcat
       copy:
-       src: "/var/snap/jenkins/4874/workspace/webappCICD/target/mvnweb-1.0-SNAPSHOT.war"
-
+        src: "/var/snap/jenkins/4874/workspace/webappCICD/target/mvnweb-1.0-SNAPSHOT.war"
         dest: "/opt/tomcat/webapps/webapp.war"
         remote_src: no
 
